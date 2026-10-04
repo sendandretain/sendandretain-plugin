@@ -1,0 +1,8 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "sendandretain",
+  "version": "0.3.0",
+  "description": "Run your companies' transactional + lifecycle email from Claude Code via the Send & Retain remote MCP server: setup (provider, domains, senders, API keys), react.email template authoring, sends, automations, and delivery metrics/logs. Includes slash commands and the operating playbooks as skills.",
+  "homepage": "https://sendandretain.com",
+  "license": "MIT"
+}

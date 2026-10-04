@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sendandretain": {
+      "type": "http",
+      "url": "${SENDANDRETAIN_MCP_URL:-https://sendandretain.com/api/mcp}"
+    }
+  }
+}

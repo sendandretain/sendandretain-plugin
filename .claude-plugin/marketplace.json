@@ -1,0 +1,15 @@
+{
+  "name": "sendandretain",
+  "owner": {
+    "name": "Send & Retain",
+    "url": "https://sendandretain.com"
+  },
+  "plugins": [
+    {
+      "name": "sendandretain",
+      "source": "./",
+      "description": "Run your companies' transactional + lifecycle email from Claude Code via the Send & Retain remote MCP server: setup (provider, domains, senders, API keys), react.email template authoring, sends, automations, and delivery metrics/logs. Includes slash commands and the operating playbooks as skills.",
+      "version": "0.3.0"
+    }
+  ]
+}
