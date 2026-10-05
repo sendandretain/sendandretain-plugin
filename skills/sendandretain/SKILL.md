@@ -1,5 +1,5 @@
 ---
-description: Use Send & Retain from Claude Code — set up sending for a company (provider, domain, senders, API keys), author react.email templates, send and observe transactional + lifecycle email, and manage automations. Use when the user asks about a company's email managed in Send & Retain or wants to set one up.
+description: Use Send & Retain from Claude Code — set up sending for a company (domain, senders, webhooks), author react.email templates, send and observe transactional and marketing email, and manage automations. Use when the user asks about a company's email managed in Send & Retain or wants to set one up.
 ---
 
 # Send & Retain
@@ -34,17 +34,17 @@ token to mint either way.
 ## Setup — from zero to sending
 
 1. `email_create_project` (or pick from `email_list_projects`).
-2. `email_get_connection_status` — provider connected? `email_connect_provider`
-   returns the settings-page URL where the HUMAN pastes the Resend/SendGrid
-   API key. Keys never travel over MCP or chat.
+2. `email_get_connection_status` — provider connected? If not, hand the HUMAN
+   its `settingsUrl`: they connect platform sending or paste their own
+   Resend/SendGrid key there. Credentials never travel over MCP or chat.
 3. `email_create_domain` — registers the sending domain with the provider and
    returns the DNS records (SPF/DKIM). Hand them to the human to add at their
    DNS host, then `email_verify_domain` once propagated.
-4. `email_register_webhooks` — delivery/bounce/complaint events flow back to us.
+4. `email_register_webhooks` — delivery/bounce/complaint events come back to us.
 5. `email_create_sender` — the from identity (requires a verified domain).
 6. `email_send_test_email` — prove the plumbing end to end.
-7. `email_create_api_key` — the company's app sends via
-   `POST /api/v1/emails` with this key. The secret is shown ONCE.
+7. API key — the company's app sends via `POST /api/v1/emails` with a key the
+   human mints on the same settings page (shown once, never over MCP).
 
 ## Templates — the authoring loop
 
@@ -63,7 +63,7 @@ variables spec; required-without-fallback fails the render.
 
 - `email_send_email` — single recipient by design (no blasts). Suppressions
   are enforced platform-side: bounce/complaint/manual block everything;
-  unsubscribe blocks lifecycle templates only.
+  unsubscribe blocks marketing templates (category `lifecycle`) only.
 - `email_get_message` / `email_search_messages` — per-message event timeline
   (queued → sent → delivered → opened/clicked, bounces, complaints).
 - `email_get_email_metrics` — rates by template/day. `complaintRatePct` is
@@ -77,5 +77,5 @@ variables spec; required-without-fallback fails the render.
 - `401 Unauthorized`: the OAuth session expired or was revoked — run `/mcp`
   (Claude Code) or reconnect the connector (claude.ai) to re-authorize.
 - "No project in scope": pass `projectId` (from `email_list_projects`).
-- Provider auth errors: `email_get_connection_status`, then re-enter the key
-  on the settings page it links.
+- Provider auth errors: `email_get_connection_status`; the human re-enters the
+  key on its `settingsUrl`.

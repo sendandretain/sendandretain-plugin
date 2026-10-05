@@ -2,7 +2,7 @@
 description: Design, test-drive, and (on explicit OK) enable an event-triggered email automation
 ---
 
-Design an automation with the user. Load the `email-automation-design` skill (bundled) and follow it.
+Design an automation with the user. The bundled `sendandretain` skill is the reference for every tool and the safety model.
 
 1. Resolve the company (`email_list_projects`) and agree the design: trigger event, exit event, audience routing (filters/priority for variants), step cadence (delays, send windows), and which templates each step uses (author missing ones via /sendandretain:new-template first).
 2. `email_create_automation` — it is ALWAYS created paused. It returns a humanized timeline; `email_preview_automation` renders every send step so you can show the user the actual emails before anything is enabled.

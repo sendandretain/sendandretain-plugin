@@ -1,8 +1,8 @@
 ---
-description: Take a company from nothing to a live email programme: understand the business, design the flows, write the emails, then set up sending
+description: Take a company from nothing to a live email programme: understand the business, design the automations, write the emails, then set up sending
 ---
 
-Take a company from nothing to a live lifecycle email programme.
+Take a company from nothing to a live email automation programme.
 
 The order matters. Nothing in phases 1-3 needs a provider, a domain or a sender —
 templates can be created and published with none of them — so do NOT ask for DNS
@@ -12,23 +12,22 @@ before the user has seen anything is what this order exists to avoid.
 **Phase 1 · Understand.** `email_list_projects`, or `email_create_project` with their
 website for a new one (it reads the site and infers the brand). Then learn five
 things, two at a time, in conversation — never as a form, and never re-asking what
-the site already answered. Use `email_fetch_url` yourself when an answer is thin.
-Record each with `email_record_onboarding_answers` the turn you learn it, so an
-interrupted session resumes where it stopped:
+the site already answered — read it yourself when an answer is thin:
   - what they sell
   - what happens in their product worth sending on, and which events their app
-    already emits — this decides every automation's trigger, and a flow wired to
-    an event nobody sends looks alive and is dead
+    already emits — this decides every automation's trigger, and an automation
+    wired to an event nobody sends looks alive and is dead
   - who is on the list, and whether it exists elsewhere already
-  - the one lifecycle moment they most want fixed
+  - the one customer moment they most want handled (signup, an abandoned
+    checkout, a lapsed customer)
   - the domain they will send from — ask for the NAME here and call
     `email_create_domain` immediately, so verification runs in the background for
     the rest of the conversation instead of blocking the end of it
 
 **Phase 2 · Strategy.** `email_list_sequence_packs`, propose the archetype and the
-flows in prose — naming each flow's trigger and asking whether their app emits it
+automations in prose — naming each automation's trigger and asking whether their app emits it
 — then `email_bootstrap_company` once they agree. It publishes the starter
-templates and creates the sequences PAUSED. If no archetype really fits, force-fit
+templates and creates the automations PAUSED. If no archetype really fits, force-fit
 the nearest and say so; the packs are step skeletons and the specificity lives in
 the copy.
 
@@ -39,15 +38,15 @@ hurts most. `email_send_template_test` to their own address — over MCP this ne
 a verified domain, so if phase 1's domain has not landed yet, say so plainly
 rather than promising an inbox.
 
-**Phase 4 · Live.** Now the setup work. `email_get_connection_status` →
-`email_connect_provider` (the user pastes the key on the settings page, never in
-chat) → `email_verify_domain` → `email_register_webhooks` → `email_create_sender`
-→ `email_create_api_key` (relay the secret immediately, shown once) and hand over
-a `POST /api/v1/events` snippet for **exactly the triggers the chosen packs use**.
+**Phase 4 · Live.** Now the setup work. `email_get_connection_status` → if no
+provider, send the user to its `settingsUrl` (they connect sending there; never
+take a key in chat) → `email_verify_domain` → `email_register_webhooks` →
+`email_create_sender` → the user mints an API key on the same page, and you hand
+over a `POST /api/v1/events` snippet for **exactly the triggers the chosen packs use**.
 If they are migrating, offer `email_import_suppressions` first. Then
-`email_pre_launch_check` and enable flows ONE at a time on their explicit OK.
+`email_pre_launch_check` and enable automations ONE at a time on their explicit OK.
 
-Done is a flow live, its trigger seen, and a real send on their own domain —
+Done is an automation live, its trigger seen, and a real send on their own domain —
 not templates published.
 
 $ARGUMENTS

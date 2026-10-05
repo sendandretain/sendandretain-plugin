@@ -2,7 +2,7 @@
 description: Deliverability incident triage: bounces, complaints, blocked sends
 ---
 
-Triage a deliverability problem with the user. Load the `email-deliverability` skill (bundled) and follow it.
+Triage a deliverability problem with the user. The bundled `sendandretain` skill is the reference for every tool and the safety model.
 
 1. Quantify: `email_get_email_metrics` for the affected window — bounce and complaint rates vs the prior period.
 2. Localize: `email_search_messages` filtered to bounced/complained/failed — which template, which recipient domains, when did it start?
