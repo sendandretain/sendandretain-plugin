@@ -1,0 +1,14 @@
+{
+  "name": "sendandretain",
+  "owner": {
+    "name": "Send & Retain",
+    "email": "hello@sendandretain.com",
+    "url": "https://sendandretain.com"
+  },
+  "plugins": [
+    {
+      "name": "sendandretain",
+      "source": "./"
+    }
+  ]
+}

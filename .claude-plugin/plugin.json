@@ -1,7 +1,7 @@
 {
   "name": "sendandretain",
-  "description": "Run your companies' email automation — transactional and marketing email — from Claude Code via the Send & Retain remote MCP server: setup (domains, senders, webhooks), react.email template authoring, sends, automations, and delivery metrics/logs. Includes slash commands and a reference skill for the full tool surface and safety model.",
-  "version": "0.3.0",
+  "description": "Email marketing for AI agents: automation that brings customers back, run from Claude Code through the Send & Retain MCP server: domains and senders, react.email templates, automations, sends, and delivery metrics. Includes slash commands, a reference skill for the full tool surface and safety model, and step-by-step workflow skills.",
+  "version": "0.4.0",
   "author": {
     "name": "Send & Retain"
   }

@@ -35,8 +35,8 @@ token to mint either way.
 
 1. `email_create_project` (or pick from `email_list_projects`).
 2. `email_get_connection_status` — provider connected? If not, hand the HUMAN
-   its `settingsUrl`: they connect platform sending or paste their own
-   Resend/SendGrid key there. Credentials never travel over MCP or chat.
+   its `settingsUrl`: they connect managed sending there, no key needed.
+   Credentials never travel over MCP or chat.
 3. `email_create_domain` — registers the sending domain with the provider and
    returns the DNS records (SPF/DKIM). Hand them to the human to add at their
    DNS host, then `email_verify_domain` once propagated.

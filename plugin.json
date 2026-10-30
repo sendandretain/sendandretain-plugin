@@ -1,8 +1,64 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "sendandretain",
-  "version": "0.3.0",
-  "description": "Run your companies' email automation — transactional and marketing email — from Claude Code via the Send & Retain remote MCP server: setup (domains, senders, webhooks), react.email template authoring, sends, automations, and delivery metrics/logs. Includes slash commands and a reference skill for the full tool surface and safety model.",
-  "homepage": "https://sendandretain.com",
-  "license": "MIT"
+  "version": "0.4.0",
+  "description": "Email automation for a company's transactional and marketing email: create and send on-brand react.email templates, build event-triggered automations, manage contacts and segments, set up sending, and track delivery, from chat.",
+  "author": {
+    "name": "Send & Retain",
+    "email": "hello@sendandretain.com",
+    "url": "https://sendandretain.com"
+  },
+  "homepage": "https://sendandretain.com/docs/mcp",
+  "repository": "https://github.com/sendandretain/sendandretain-plugin",
+  "license": "MIT",
+  "keywords": [
+    "email api",
+    "email marketing",
+    "send email",
+    "email",
+    "lifecycle email",
+    "transactional email",
+    "email automation",
+    "react email",
+    "email templates",
+    "deliverability",
+    "resend",
+    "sendgrid",
+    "onboarding emails",
+    "abandoned cart",
+    "win-back"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Send & Retain Emails",
+        "shortDescription": "Email templates & automations",
+        "longDescription": "Send & Retain is an email automation service. It creates, sends and tracks a company's transactional and marketing email — order confirmations, welcome emails, abandoned-cart reminders, win-back campaigns — and this plugin lets you run all of it from a conversation: the templates, the automations that send them, the contacts they go to, and the sending setup behind them.\n\nStand up a company's programme from its business type: a brand kit, starter templates and the matching automations (welcome, abandoned cart, order updates, win-back), created paused. Write and revise react.email templates in the company's own brand and voice, render them with sample data, and publish when they are right. Design event-triggered automations with delays, send windows, branches and A/B variants, preview every email in an automation, and check what would block it before it goes live. Manage contacts, attributes and segments, read delivery and engagement metrics by template and by day, search the message log, and triage bounces and complaints.\n\nBuilt for founders, marketers and agencies running email for one company or a portfolio of them.\n\nSafety by design: there is no bulk send. Every message has one recipient, and mail reaches many people only through an automation a person explicitly enabled. Automations are always created paused, and enabling one is a separate, confirmed step. Each company has a send kill switch and an optional daily cap. Bounces and complaints suppress addresses automatically, and complaint suppressions can never be removed. Provider API keys are entered only on the Send & Retain settings page, never in chat.\n\nLimitations: email only (no SMS, push or social posting). Sending needs a connected provider or platform sending and a verified domain, which a person sets up once per company. Connecting requires a Send & Retain account.",
+        "developerName": "Send & Retain",
+        "category": "Communication",
+        "capabilities": [
+          "Brand kit and starter programme per company",
+          "Author, render and publish react.email templates",
+          "Event-triggered automations, created paused",
+          "Contacts, attributes and segments",
+          "Delivery and engagement metrics",
+          "Message log and deliverability triage",
+          "Sending setup: provider, domain, senders, API keys"
+        ],
+        "websiteURL": "https://sendandretain.com",
+        "supportURL": "https://sendandretain.com/docs",
+        "privacyPolicyURL": "https://sendandretain.com/privacy",
+        "termsOfServiceURL": "https://sendandretain.com/terms",
+        "defaultPrompt": [
+          "Which of my automations are live, and what would block the rest?",
+          "Draft a back-in-stock email in our brand voice.",
+          "How did our emails perform this week, by template?"
+        ],
+        "brandColor": "#6546C7",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/sendandretain-get-started/SKILL.md"
+    }
+  }
 }

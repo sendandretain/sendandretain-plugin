@@ -1,0 +1,11 @@
+{
+  "name": "sendandretain",
+  "version": "0.4.0",
+  "description": "Email marketing for AI agents. Bring customers back with email that reaches the inbox.",
+  "mcpServers": {
+    "sendandretain": {
+      "httpUrl": "https://sendandretain.com/api/mcp"
+    }
+  },
+  "contextFileName": "skills/sendandretain/SKILL.md"
+}

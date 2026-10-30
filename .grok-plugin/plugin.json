@@ -1,0 +1,31 @@
+{
+  "name": "sendandretain",
+  "version": "0.4.0",
+  "description": "Email automation for a company's transactional and marketing email: create and send on-brand react.email templates, build event-triggered automations, manage contacts and segments, set up sending, and track delivery, from chat.",
+  "logo": "assets/icon.png",
+  "author": {
+    "name": "Send & Retain",
+    "email": "hello@sendandretain.com",
+    "url": "https://sendandretain.com"
+  },
+  "homepage": "https://sendandretain.com/docs/mcp",
+  "repository": "https://github.com/sendandretain/sendandretain-plugin",
+  "license": "MIT",
+  "keywords": [
+    "email api",
+    "email marketing",
+    "send email",
+    "email",
+    "lifecycle email",
+    "transactional email",
+    "email automation",
+    "react email",
+    "email templates",
+    "deliverability",
+    "resend",
+    "sendgrid",
+    "onboarding emails",
+    "abandoned cart",
+    "win-back"
+  ]
+}

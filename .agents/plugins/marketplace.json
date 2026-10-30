@@ -1,0 +1,20 @@
+{
+  "name": "sendandretain",
+  "interface": {
+    "displayName": "Send & Retain Emails"
+  },
+  "plugins": [
+    {
+      "name": "sendandretain",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Communication"
+    }
+  ]
+}
